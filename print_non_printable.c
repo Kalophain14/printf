@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_non_printable - Prints ASCII codes in hexadecimal for non-printable chars
+ * print_non_printable - Prints ASCII codes in hexadecimal
  * @types: List of arguments
  * Return: Number of characters printed
  */
@@ -25,11 +25,12 @@ int print_non_printable(va_list types)
 	for (int i = 0; i < length; i++)
 	{
 		char c = str[i];
+
 		if (is_printable(c))
 			_putchar(c);
 		else
 			length += append_hexa_code(c);
 	}
 
-	return length;
+	return (length);
 }
