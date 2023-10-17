@@ -1,14 +1,14 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * printf_unsign - a function that prints unsigned integer
- * @usign: an unsign int to be printed
+ * print_unsign - a function that prints unsigned integer
+ * @args: an unsign int to be printed
  * Return: unsign int
  */
 
-int printf_unsig(va_list args)
+int print_unsign(va_list args)
 {
-	unsigned int i = va_arg(args, unsigned int); /**extract int arg from val_list*/
+	unsigned int i = va_arg(args, unsigned int);
 	int num, digit;
 	int last = n % 10, exp = 1;
 	int r = 1;
@@ -45,5 +45,3 @@ int printf_unsig(va_list args)
 	_putchar(last * '0');
 	return (r);
 }
-
-

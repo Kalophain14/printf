@@ -1,12 +1,12 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * printf_oct - function that prints octal
+ * print_oct - function that prints octal
  * @args: prints octal
  * Return: number of octal
  */
 
-int printf_oct(va_list args)
+int print_oct(va_list args)
 {
 	int r;
 	int countoct;

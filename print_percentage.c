@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * print_perc - a function that prints out % in ASCII 37
+ * print_37 - a function that prints out % in ASCII 37
  * Return: an integer
  */
 

@@ -1,12 +1,12 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * printf_hexlower - function that prints lower hexi
+ * print_hexlower - function that prints lower hexi
  * @args: extract the va_list
  * Return: number of hexi
  */
 
-int printf_hexlower(va_list args)
+int print_hexlower(va_list args)
 {
 	int r;
 	int countoct = 0;
@@ -34,7 +34,7 @@ int printf_hexlower(va_list args)
 	{
 		if (array[r] > 9)
 			array[r] = arrau[r] + 39;
-		_putchar(array[r] + '0'); /**10 + 39 + 48 = 97 ASCII lower*/ 
+		_putchar(array[r] + '0'); /**10 + 39 + 48 = 97 ASCII lower*/
 	}
 	free(array);
 	return (countoct);

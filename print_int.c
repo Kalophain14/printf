@@ -2,12 +2,12 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * printf_i - prints integers in format %i
+ * print_i - prints integers in format %i
  * @args: arguements int to be printed
  * Return: number of characters printed
  */
 
-int printf_i(va_list args)
+int print_i(va_list args)
 {
 	int i = va_arg(args, int); /**extract int arg from val_list*/
 	int num, digit;
@@ -48,12 +48,12 @@ int printf_i(va_list args)
 }
 
 /**
- * printf_d - prints integers using %d format
+ * print_d - prints integers using %d format
  * @args: va_list to be printed in int
  * Return: num of char to be printed
  */
 
-int printf_d(va_list args)
+int print_d(va_list args)
 {
 	int d = va_arg(args, int);
 	int num, digit;

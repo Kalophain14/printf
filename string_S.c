@@ -1,17 +1,16 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * print_hexupper - function that prints hexi upper A
- * @args: extract the va_list
+ * print_hexis - function that prints hexi upper A
+ * @num: unsigned int
  * Return: number of hexi
  */
 
-int print_hexupper(va_list args)
+int print_hexis(unsigned int num)
 {
 	int r;
 	int countoct = 0;
 	int *array;
-	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
 	while (num / 16 != 0)

@@ -1,12 +1,12 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * printf_string - a function that prints string
+ * print_str - a function that prints string
  * @string: string arguement
  * Return: length of the string
  */
 
-int printf_str(va_list string)
+int print_str(va_list string)
 {
 	int length = 0;
 	char *str;
@@ -16,8 +16,8 @@ int printf_str(va_list string)
 
 	if (str == NULL)
 	{
-		str = "(null)"
-		length = _strelen(str);
+		str = "(null)";
+		length = _strlen(str);
 		for (r = 0; r < length; r++)
 			_putchar(str[r]);
 		return (length);
