@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include "main.h"
-
 /**
  * printf_hexupper - function that prints hexi upper A
  * @args: extract the va_list
