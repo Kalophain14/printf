@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include "main.h"
-
 /**
  * _printf_char - prints characters
  * @character: list of arguements to be printed
