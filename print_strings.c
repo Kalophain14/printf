@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include "main.h"
-
 /**
  * printf_string - a function that prints string
  * @string: string arguement
