@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-
 /**
  * printf_i - prints integers in format %i
  * @args: arguements int to be printed
