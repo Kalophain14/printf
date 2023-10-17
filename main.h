@@ -33,5 +33,7 @@ int print_hexip(unsigned long int num); /**function to print hexi poiinters for 
 int print_pointer(va_list val);
 int print_write(char c);
 int _print_out(char *str); /**printsout write output*/
+int print_non_printable(va_list types);
+int append_hexa_code(char character); /**works with non_printable*/
 
 #endif
