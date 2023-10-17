@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include "main.h"
-
 /**
  * print_bi - prints binary
  * @binary: binary arguement
