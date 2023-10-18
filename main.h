@@ -41,5 +41,6 @@ int print_rot13string(va_list types);
 int print_non_dash(va_list args);
 int print_non_zero(va_list non_zero);
 int print_precision(va_list args, int precision);
+int print_field_width(va_list args, int field_width);
 
 #endif
