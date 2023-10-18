@@ -36,7 +36,7 @@ int _print_out(char *str); /**printsout write output*/
 int print_plus(va_list plus);
 int print_space(va_list space):
 int print_hash(va_list hash);
-void print_rev(char *s);
+int print_rev(va_list val);
 int print_rot13string(va_list types);
 int print_non_dash(va_list args);
 int print_non_zero(va_list non_zero);
