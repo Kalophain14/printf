@@ -6,7 +6,6 @@
  * @f: Pointer to the struct if a flag is passed to _printf.
  * Return: The number of characters printed.
  */
-
 int print_address(va_list l, flags_t *f)
 {
 	char *str;
@@ -14,13 +13,21 @@ int print_address(va_list l, flags_t *f)
 
 	register int count = 0;
 
-	(void)f;  /**Unused flags.*/
+	(void)f;  // Unused flags.
 
 	if (!p)
-		return (_puts("(nil)"));  /**Print "(nil)" if the pointer is NULL.*/
-	str = convert(p, 16, 1); /**Convert address to hexa string*/
-	count += _puts("0x");
-	count += _puts(str); /**Print the hexadecimal address*/
+		return (_puts("(nil)"));  // Print "(nil)" if the pointer is NULL.
 
-	return (count);
+	count += _putchar('0');
+	count += _putchar('x');
+
+	str = convert(p, 16, 1);  // Convert address to hexadecimal string
+
+	while (*str)
+	{
+		count += _putchar(*str);
+		str++;
+	}
+
+	return count;
 }
