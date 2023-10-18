@@ -9,11 +9,11 @@
 
 int print_non_dash(va_list args)
 {
-    int count = 0;
-    char character = va_arg(args, int);
-    
-    _putchar(character);
-    count++;
-    
-    return count;
+	int count = 0;
+	char character = va_arg(args, int);
+
+	_putchar(character);
+	count++;
+
+return (count);
 }
