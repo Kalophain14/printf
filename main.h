@@ -1,48 +1,79 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+#include "main.h"
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
+#include <stdarg.h>
 
-/**holds matching specifiers*/
-typedef struct format
+/**
+ * struct flags - struct containing flags to "turn on"
+ * @plus: The '+' character
+ * @space: The ' ' (space) character
+ * @hash: The '#' character
+ */
+
+typedef struct flags
 {
-	char *id;
-	int (*f)();
-} match;
+	int plus;
+	int space;
+	int hash;
+} flags_t;
 
+/**
+ * struct printHandler - struct to choose the right function depending
+ * @c: format specifier
+ * @f: pointer to the corresponding printing function.
+ */
+
+typedef struct printHandler
+{
+	char c;
+	int (*f)(va_list ap, flags_t *f);
+} ph;
+
+/**print_integers*/
+int print_int(va_list l, flags_t *f);
+void print_number(int n);
+int print_unsigned(va_list l, flags_t *f);
+int count_digit(int i);
+
+/**print_bases 16, 2, & 8*/
+int print_hex(va_list l, flags_t *f);
+int print_hex_big(va_list l, flags_t *f);
+int print_binary(va_list l, flags_t *f);
+int print_octal(va_list l, flags_t *f);
+
+/**converts integers*/
+char *convert(unsigned long int num, int base, int lowercase);
+
+/**_printf*/
 int _printf(const char *format, ...);
+
+/**get_print*/
+int (*get_print(char s))(va_list, flags_t *);
+
+/**get_flag*/
+int get_flag(char s, flags_t *f);
+
+/**print_strings and characters*/
+int print_string(va_list l, flags_t *f);
+int print_char(va_list l, flags_t *f);
+
+/**write_functions*/
 int _putchar(char c);
-int _print_char(va_list character);
-int print_str(va_list string);
-int _print(const char *format, ...);
-int _strlen(char *str); /**stores string length*/
-int _strlenc(const char *str); /**stores constant length strings*/
-int print_37(void);
-int print_i(va_list args);
-int print_d(va_list args);
-int print_bi(va_list binary);
-int print_unsign(va_list args);
-int print_oct(va_list args);
-int print_hexlower(va_list args);
-int print_hexupper(va_list args);
-int print_hexis(unsigned int num); /**function to print hexi strings for print_S*/
-int print_s(va_list val);
-int print_hexip(unsigned long int num); /**function to print hexi poiinters for hexiP*/
-int print_pointer(va_list val);
-int print_write(char c);
-int _print_out(char *str); /**printsout write output*/
-int print_plus(va_list plus);
-int print_space(va_list space);
-int print_hash(va_list hash);
-int print_rev(va_list val);
-int print_rot13string(va_list types);
-int print_non_dash(va_list args);
-int print_non_zero(va_list non_zero);
-int print_precision(va_list args, int precision);
-int print_field_width(va_list args, int field_width);
-int print_length_modifier(const char *format, va_list args)
-void custom_printf(const char *format, ...); /**for print_length*/
+int _puts(char *str);
+
+/**print_non_custom*/
+int print_rot13(va_list l, flags_t *f);
+int print_rev(va_list l, flags_t *f);
+int print_bigS(va_list l, flags_t *f);
+
+/**print_address*/
+int print_address(va_list l, flags_t *f);
+
+/**print_percent*/
+int print_percent(va_list l, flags_t *f);
 
 #endif

@@ -1,32 +1,37 @@
 #include <stdarg.h>
 #include "main.h"
+
 /**
- * print_str - a function that prints string
- * @string: string arguement
- * Return: length of the string
+ * print_string - Prints the characters in a string.
+ * @l: va_list arguments from _printf.
+ * @f: Pointer to the struct if a flag is passed to _printf.
+ * Return: The number of characters printed.
  */
 
-int print_str(va_list string)
+int print_string(va_list l, flags_t *f)
 {
-	int length = 0;
-	char *str;
-	int r;
+	char *s = va_arg(l, char *);
 
-	str = va_arg(string, char *);
+	(void)f;
 
-	if (str == NULL)
-	{
-		str = "(null)";
-		length = _strlen(str);
-		for (r = 0; r < length; r++)
-			_putchar(str[r]);
-		return (length);
-	}
-	else
-	{
-		length = _strlen(str);
-		for (r = 0; r < length; r++)
-			_putchar(str[r]);
-		return (length);
-	}
+	if (!s)
+		s = "(null)"; /** Print "(null)" if the string is NULL.*/
+
+	return (_puts(s));
+}
+
+/**
+ * print_char - Prints a single character.
+ * @l: va_list arguments from _printf.
+ * @f: Pointer to the struct if flag is passed to _printf.
+ * Return: The number of characters printed (always 1 for a character).
+ */
+
+int print_char(va_list l, flags_t *f)
+{
+	(void)f;
+
+	_putchar(va_arg(l, int));
+
+	return (1);
 }
