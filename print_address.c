@@ -4,9 +4,9 @@
  * print_address - Prints the address of the input in hexadecimal format.
  * @l: va_list arguments from _printf.
  * @f: Pointer to the struct if a flag is passed to _printf.
- *
  * Return: The number of characters printed.
  */
+
 int print_address(va_list l, flags_t *f)
 {
 	char *str;
