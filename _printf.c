@@ -1,51 +1,54 @@
-#include <stdarg.h>
 #include "main.h"
+#include <limits.h>
+#include <stdio.h>
+#include <stdarg.h>
+
+/**
+ * _printf - produces output according to a format.
+ * @format: format string containing characters and specifiers.
+ * Return: The number of characters printed (excluding the null byte).
+ */
 
 int _printf(const char *format, ...)
 {
-	va_list args;
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
 
-	va_start(args, format);
-	
-	int char_count = 0;
-	int i = 0;
+	flags_t flags = {0, 0, 0};
 
-	while (format && format[i])
+	register int count = 0;
+
+	va_start(arguments, format);
+
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	for (p = format; *p; p++)
 	{
-		if (format[i] != '%')
-	{
-		_putchar(format[i]);
-		char_count++;
-	}
-	else
-	{
-		i++;
-		if (format[i] == '\0')
-			break;
-
-		int match_found = 0;
-
-		match specifiers[] = {{"c", _print_char}, {"s", print_str}, {"%", print_37}, {"i", print_i}, {"d", print_d}, {"b", print_bi}, {"u", print_unsign}, {"o", print_oct}, {"x", print_hexlower}, {"X", print_hexupper}, {"S", print_s}, {"p", print_pointer}, {"+", print_plus}, {" ", print_space}, {"#", print_hash}, {"r", print_rev}, {"R", print_rot13string}, {"m", print_non_dash}, {"z", print_non_zero}, {"l", print_length_modifier}, {NULL, NULL} };
-
-		for (int j = 0; specifiers[j].id; j++)
+		if (*p == '%')
 		{
-			if (format[i] == specifiers[j].id[0])
+			p++;
+			if (*p == '%')
 			{
-				char_count += specifiers[j].f(arg);
-				match_found = 1;
-				break;
+				count += _putchar('%');
+				continue;
 			}
-		}
-
-		if (!match_found)
-		{
-			_putchar('%');
-			_putchar(format[i]);
-			char_count += 2;
-		}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _putchar('%') + _putchar(*p);
+		} else
+			count += _putchar(*p);
 	}
-	i++;
-}
-va_end(args);
-return (char_count);
+
+	_putchar(-1);
+	va_end(arguments);
+
+	return (count);
 }

@@ -12,7 +12,7 @@ typedef struct format
 	int (*f)();
 } match;
 
-
+int _printf(const char *format, ...);
 int _putchar(char c);
 int _print_char(va_list character);
 int print_str(va_list string);
@@ -34,7 +34,7 @@ int print_pointer(va_list val);
 int print_write(char c);
 int _print_out(char *str); /**printsout write output*/
 int print_plus(va_list plus);
-int print_space(va_list space):
+int print_space(va_list space);
 int print_hash(va_list hash);
 int print_rev(va_list val);
 int print_rot13string(va_list types);
