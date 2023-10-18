@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_flag - Set flags if _printf encounters a flag specifier in the format string.
+ * get_flag - Set flags if specifier in the format string.
  * @s: The character that holds the flag specifier.
  * @f: Pointer to the flags_t struct where the flags are turned on.
  * Return: 1 if a flag has been turned on, 0 otherwise.

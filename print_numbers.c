@@ -21,7 +21,7 @@ int print_int(va_list l, flags_t *f)
 		res++;
 	print_number(n);
 
-	return res;
+	return (res);
 }
 
 /**
@@ -86,5 +86,5 @@ int count_digit(int i)
 		d++;
 	}
 
-	return d;
+	return (d);
 }

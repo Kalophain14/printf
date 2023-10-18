@@ -4,7 +4,7 @@
 /**
  * get_print - printing function based on the conv specifier
  * @s: The character holding the conversion specifier.
- * Return: A pointer to the matching printing function, or NULL if no match is found.
+ * Return: A pointer to match, or NULL if no match is found.
  */
 
 int (*get_print(char s))(va_list, flags_t *)

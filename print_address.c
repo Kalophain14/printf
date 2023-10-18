@@ -31,5 +31,5 @@ int print_address(va_list l, flags_t *f)
 		str++;
 	}
 
-	return count;
+	return (count);
 }
