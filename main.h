@@ -76,4 +76,12 @@ int print_address(va_list l, flags_t *f);
 /**print_percent*/
 int print_percent(va_list l, flags_t *f);
 
+/**print length modifiers*/
+
+/**print field width & precision*/
+
+/**print 0 and dash(-) flag*/
+
+/**all * work*/
+
 #endif
