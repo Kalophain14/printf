@@ -38,5 +38,6 @@ int print_space(va_list space):
 int print_hash(va_list hash);
 void print_rev(char *s);
 int print_rot13string(va_list types);
+int print_non_dash(va_list args);
 
 #endif
