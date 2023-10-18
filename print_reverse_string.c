@@ -6,21 +6,17 @@
  * @s: string to be reversed
  */
 
-void print_rev(char *s)
+int print_rev(va_list val)
 {
-	int a = 0;
-	int b;
+	char *s = va_arg(val, char*);
+	int a
+	int b = 0;
 
-	while (*s != '\0')
-	{
-		r++;
-		s++;
-	}
-	s--;
-	for (t = r; t > 0; t--)
-  {
-		_putchar(*s);
-		s--;
-	}
-_putchar('\n');
+	if (s == NULL)
+		s = "(null)";
+	while (s[b] != '\0')
+		b++;
+	for (a = b - 1; a >= 0; a--)
+		_putchar(s[a]);
+	return (b);
 }
