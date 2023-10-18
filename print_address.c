@@ -13,15 +13,15 @@ int print_address(va_list l, flags_t *f)
 
 	register int count = 0;
 
-	(void)f;  // Unused flags.
+	(void)f;  /**Unused flags.*/
 
 	if (!p)
-		return (_puts("(nil)"));  // Print "(nil)" if the pointer is NULL.
+		return (_puts("(nil)"));  /**Print "(nil)" if the pointer is NULL*/
 
 	count += _putchar('0');
 	count += _putchar('x');
 
-	str = convert(p, 16, 1);  // Convert address to hexadecimal string
+	str = convert(p, 16, 1);  /**Convert address to hexadecimal string*/
 
 	while (*str)
 	{
