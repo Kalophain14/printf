@@ -18,9 +18,16 @@ int print_address(va_list l, flags_t *f)
 
 	if (!p)
 		return (_puts("(nil)"));  /**Print "(nil)" if the pointer is NULL.*/
+	count += _putchar('0');
+	count += _putchar('x'); /**Print the hexadecimal address*/
+
 	str = convert(p, 16, 1); /**Convert address to hexa string*/
-	count += _puts("0x");
-	count += _puts(str); /**Print the hexadecimal address*/
+
+	while (*str)
+	{
+		count += _putchar(*str);
+		str++;
+	}
 
 	return (count);
 }
