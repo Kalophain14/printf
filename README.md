@@ -13,13 +13,17 @@ Our primary objective is to create a reliable and customizable printf functions 
 Authorized Functions and Macros:
 We've carefully selected a set of authorized functions and macros to ensure that our project adheres to best practices and promotes code quality. These authorized functions and macros include:
 
-write (man 2 write): To facilitate the output of formatted data to the specified file descriptor.
-malloc (man 3 malloc): For dynamic memory allocation to handle variable-sized output strings.
-free (man 3 free): To release dynamically allocated memory and prevent memory leaks.
-va_start (man 3 va_start): Used to initialize the variable argument list.
-va_end (man 3 va_end): To indicate the end of variable argument processing.
-va_copy (man 3 va_copy): Required for safe copying of variable argument lists.
-va_arg (man 3 va_arg): Used to access the next argument in the variable argument list.
+project files:
+_printf.c - imitate the printf function
+print_address.c - handles the convertion of string hexi
+print_all_converters.c - handles the convertion of a string in a specified base
+print_bases.c - handles numbers in hexadecimal, binary base 2 and octal base 8
+print_get_flag.c - handles flags of specified strings
+print_get_print.c - handles printing function based on specifiers
+print_non_custom.c - handles %, rot13, string reverse and bigS in hexadecimal
+print_numbers.c - handles integers and unsigned integers
+print_strings.c - handles the string and character function
+write_function.c - handles the write function
 
 ## Authors
 
