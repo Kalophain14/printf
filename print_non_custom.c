@@ -18,7 +18,7 @@ int print_bigS(va_list l, flags_t *f)
 	(void)f;
 
 	if (!s)
-		return (_puts("(null)"));  /* Print "(null)" if the string is NULL. */
+		return (_puts("(null)"));  /**Print "(null)" if the string is NULL.*/
 
 	for (i = 0; s[i]; i++)
 	{
