@@ -42,5 +42,7 @@ int print_non_dash(va_list args);
 int print_non_zero(va_list non_zero);
 int print_precision(va_list args, int precision);
 int print_field_width(va_list args, int field_width);
+int print_length_modifier(const char *format, va_list args)
+void custom_printf(const char *format, ...); /**for print_length*/
 
 #endif
