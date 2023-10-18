@@ -40,5 +40,6 @@ int print_rev(va_list val);
 int print_rot13string(va_list types);
 int print_non_dash(va_list args);
 int print_non_zero(va_list non_zero);
+int print_precision(va_list args, int precision);
 
 #endif
