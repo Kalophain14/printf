@@ -2,43 +2,37 @@
 #include "main.h"
 
 /**
- * print_length_modifier - Handles l and h length modifiers
- * @s: The format string containing the conversion specifier
+ * length_modifier - Handles l and h length modifiers
  * @args: va_list containing the corresponding argument
- * @f: Pointer to flags_t structure
+ * @s: pointer to a constant string
  * Return: Number of characters printed
  */
-int print_length_modifier(va_list args, flags_t *f)
+
+int length_modifier(va_list args, const char *s)
 {
-  char *s;
-  int count = 0;
+	int count = 0;
 
-    if (!s || !s[0])
-        return 0;
+	if (!s || !s[0])
+		return (count);
+	if (s[0] == 'l')
+	{
+		s++;
+		if (s[0] == 'd' || s[0] == 'i')
+		{
+			long num = va_arg(args, long);
 
-    if (s[0] == 'l')
-    {
-        s++;
-        if (s[0] == 'd' || s[0] == 'i')
-        {
-            long num = va_arg(args, long);
-            print_number(num);
-            // Assuming print_number internally counts characters printed
-        }
-        // Handle other 'l' modifiers here if needed
-    }
-    else if (s[0] == 'h')
-    {
-        s++;
-        if (s[0] == 'd' || s[0] == 'i')
-        {
-            short num = (short)va_arg(args, int);
-            print_number(num);
-            // Assuming print_number internally counts characters printed
-        }
-        // Handle other 'h' modifiers here if needed
-    }
+			print_number(num);
+		}
+	}
+	else if (s[0] == 'h')
+	{
+		s++;
+		if (s[0] == 'd' || s[0] == 'i')
+		{
+			short num = (short)va_arg(args, int);
 
-    return count;
+			print_number(num);
+		}
+	}
+return (count);
 }
-

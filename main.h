@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define FLAG_LEFT_JUSTIFY 0x01
 
 #include "main.h"
 #include <limits.h>
@@ -21,22 +22,6 @@ typedef struct flags
 } flags_t;
 
 /**
- * struct ph_ext - converts specifiers to l & h
- * @length_modifier: length modifier character, e.g 'l' or 'h'.
- * @width: the field width
- * @precision: the precision format
- * @flags: the format flags (- , 0, etc)
- */
-typedef struct {
-    char c;
-    int flags;
-    int width;
-    int precision;
-    char length_modifier;
-    int (*f)(va_list, flags_t *);
-} ph_ext;
-
-/**
  * struct printHandler - struct to choose the right function depending
  * @c: format specifier
  * @f: pointer to the corresponding printing function.
@@ -46,7 +31,6 @@ typedef struct printHandler
 	char c;
 	int (*f)(va_list ap, flags_t *f);
 } ph;
-
 
 /**print_integers*/
 int print_int(va_list l, flags_t *f);
@@ -67,7 +51,7 @@ char *convert(unsigned long int num, int base, int lowercase);
 int _printf(const char *format, ...);
 
 /**get_print*/
-int (*get_print(char s, char flags, int width, int precision, char length_modifier))(va_list l, flags_t *f);
+int (*get_print(char s, va_list l, flags_t *f, int width, int precision, char length_modifier))(va_list, flags_t *);
 
 /**get_flag*/
 int get_flag(char s, flags_t *f);
@@ -92,7 +76,7 @@ int print_address(va_list l, flags_t *f);
 int print_percent(va_list l, flags_t *f);
 
 /**handle lh, field_width, 0, - and precision*/
-int (*get_print(char s, char length_modifier))(va_list, flags_t *);
+int length_modifier(va_list args, const char *s);
 int print_minus_flag(const char *s, va_list args, flags_t *f);
 int print_zero_flag(const char *s, va_list args, flags_t *f);
 int print_precision(const char *s, va_list args, flags_t *f);
