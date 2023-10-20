@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define FLAG_LEFT_JUSTIFY 0x01
 
 #include "main.h"
 #include <limits.h>
@@ -13,7 +14,6 @@
  * @space: The ' ' (space) character
  * @hash: The '#' character
  */
-
 typedef struct flags
 {
 	int plus;
@@ -26,7 +26,6 @@ typedef struct flags
  * @c: format specifier
  * @f: pointer to the corresponding printing function.
  */
-
 typedef struct printHandler
 {
 	char c;
@@ -52,7 +51,7 @@ char *convert(unsigned long int num, int base, int lowercase);
 int _printf(const char *format, ...);
 
 /**get_print*/
-int (*get_print(char s))(va_list, flags_t *);
+int (*get_print(char s, va_list l, flags_t *f, int width, int precision, char length_modifier))(va_list, flags_t *);
 
 /**get_flag*/
 int get_flag(char s, flags_t *f);
@@ -76,12 +75,11 @@ int print_address(va_list l, flags_t *f);
 /**print_percent*/
 int print_percent(va_list l, flags_t *f);
 
-/**print length modifiers*/
-
-/**print field width & precision*/
-
-/**print 0 and dash(-) flag*/
-
-/**all * work*/
+/**handle lh, field_width, 0, - and precision*/
+int length_modifier(va_list args, const char *s);
+int print_minus_flag(const char *s, va_list args, flags_t *f);
+int print_zero_flag(const char *s, va_list args, flags_t *f);
+int print_precision(const char *s, va_list args, flags_t *f);
+int print_field_width(const char *s, va_list args, flags_t *f);
 
 #endif
